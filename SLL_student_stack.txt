@@ -69,9 +69,9 @@ void display(){
     }
     else{
         p=list;
-        printf("Students details\n");
+        printf("RegNo\t Name\n");
         while(p!=NULL){
-            printf("%d %s\n",p->reg,p->name);
+            printf("%d\t %s\n",p->reg,p->name);
             p=p->next;
         }
     }
