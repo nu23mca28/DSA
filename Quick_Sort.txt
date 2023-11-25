@@ -1,0 +1,56 @@
+#include<stdio.h>
+
+void quickSort(int arr[],int,int);
+
+void main()
+{
+    int arr[30],l,r,i,n;
+    printf("Enter the number of ele: ");
+    scanf("%d",&n);
+    printf("Enter values: \n");
+    for(i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    l=0;r=n-1;
+    quickSort(arr,l,r);
+    
+    printf("The quick sorted array is: \n");
+    for(i=0;i<n;i++)
+        printf("%d ",arr[i]);
+}
+
+void quickSort(int arr[], int low, int high)
+{
+    int temp,i,j,x,k;
+    if(low>=high)
+        return;
+    else
+    {
+        x=arr[low];
+        i=low+1;
+        j=high;
+        while(i<=j)
+        {
+            while(arr[i]<x && i<=high)
+            {
+                i++;
+            }
+            while(arr[j]>x && j>low)
+            {
+                j--;
+            } 
+            if(i<j)
+            {
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[i]=temp; 
+                i++; 
+                j--;
+            }
+        }
+        arr[low]=arr[j];
+        arr[j]=x;
+        quickSort(arr, low,j-1); 
+        quickSort(arr,j+1,high);
+    }
+}
