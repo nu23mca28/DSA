@@ -21,7 +21,7 @@ void main()
 
 void quickSort(int arr[], int low, int high)
 {
-    int temp,i,j,x,k;
+    int temp,i,j,x;
     if(low>=high)
         return;
     else
