@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 struct node{
     int info;
     struct node *left;
@@ -11,10 +12,11 @@ nodeptr p,list=NULL,temp;
 nodeptr getnode();
 void insert_b();
 void insert_l();
-void insert_m();
+void insert_before();
+void insert_after();
 void delete_b();
 void delete_l();
-void delete_m();
+void delete_middle();
 void display();
 
 void main(){
@@ -65,6 +67,7 @@ void insert_b(){
         return;
     }
     temp->right=list;
+    list->left=temp;
     list=temp;
 }
 
