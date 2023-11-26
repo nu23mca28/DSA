@@ -58,7 +58,7 @@ void insert_b(){
     scanf("%d",&x);
     temp=getnode();
     temp->info=x;
-    temp->next=list;
+    temp->next=list;    // if(list==NULL)
     list=temp;
 }
 
