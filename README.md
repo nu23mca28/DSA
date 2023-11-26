@@ -1,6 +1,6 @@
 # DSA lab programs 
 
-******All the above given programs are written in my logic. (Refer at your own risk)******
+**All the above given programs are written in my logic. (Refer at your own risk)**
 
 
 
