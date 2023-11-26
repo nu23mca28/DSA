@@ -1,3 +1,6 @@
 # DSA lab programs 
 
-*****PLEASE EXECUTE THE CODE and let me know if there is any mistake*****
+*****All the above given programs are written in my logic. (Refer at your own risk)****
+
+
+---PLEASE EXECUTE THE CODE and let me know if there is any mistake---
