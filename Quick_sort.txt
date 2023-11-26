@@ -33,5 +33,5 @@ void main()
         printf("%d\t\n",a[i]);
     }
     printf("Array after sorting\n");
-    selectsort(a,n);
+    selection_sort(a,n);
 }
