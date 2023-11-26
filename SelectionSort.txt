@@ -1,35 +1,29 @@
 #include<stdio.h>
 void selectsort(int a[],int n)
 {
-int i,j,large,index;
-
-    for(i=n-1;i>0;i--)
-    {
-    large=a[0];
-    index=0;
-    for(j=1;j<=i;j++)
-    {
-        if(a[j]>large)
-        {
-            large=a[j];
-            index=j;
+    int i,j,min,temp;
+    for(i=0;i<n;i++){
+        min=i;
+        for(j=i+1;j<n;j++){
+            if(a[j]<a[min]){
+                min=j;
+            }
         }
+        temp=a[i];
+        a[i]=a[min];
+        a[min]=temp;
     }
-    a[index]=a[i];
-    a[i]=large;
-    }
-     for(i=0;i<n;i++)
-    {
-        printf("%d\t",a[i]);
+    for(i=0;i<n;i++){
+        printf("%d ",a[i]);
     }
 }
 void main()
 {
-int n,a[100],i;
-printf("Enter the number of elements in an array\n");
-scanf("%d",&n);
-printf("Enter array elements\n");
-for(i=0;i<n;i++)
+    int n,a[100],i;
+    printf("Enter the number of elements in an array\n");
+    scanf("%d",&n);
+    printf("Enter array elements\n");
+    for(i=0;i<n;i++)
     {
         scanf("%d",&a[i]);
     }
