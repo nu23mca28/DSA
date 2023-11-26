@@ -102,7 +102,7 @@ void insert_before(){
     while(i!=pos){
         q=p;
         p=p->next;
-        if(p==list->next){
+        if(p==list->next){                // if you enter a position that is beyond the position of last node
             printf("Cannot Insert");
             return;
         }
