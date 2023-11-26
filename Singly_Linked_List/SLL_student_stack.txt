@@ -1,10 +1,7 @@
 #include<stdio.h>
+#include<stdlib.h>
 struct node{
-    int reg;
-    char name[50];
-    int sem;
-    int total;
-    char grade;
+    int info;
     struct node *next;
 };
 
@@ -13,28 +10,42 @@ nodeptr p,list=NULL,temp;
 
 nodeptr getnode();
 void insert_b();
+void insert_l();
+void insert_before();
+void insert_after();
 void delete_b();
+void delete_l();
+void delete_middle();
 void display();
 
 void main(){
     int c;
-    char ch;
     do{
-        printf("\n\n1.Push\n2.Pop\n3.Display\n4.Exit\n");
+        printf("\n\n1.Insert at beggning\n2.Insert at last\n3.Insert Before\n4.Insert After\n5.Delete from beginning\n6.Delete Last\n7.Delete Middle\n8.Display\n9.Exit\n");
         printf("Enter your choice : ");
         scanf("%d",&c);
         switch(c){
             case 1:insert_b();
                     break;
-            case 2:delete_b();
+            case 2:insert_l();
                     break;
-            case 3:display();
+            case 3:insert_before();
                     break;
-            case 4:printf("Thankyou!");
+            case 4:insert_after();
+                    break;
+            case 5:delete_b();
+                    break;
+            case 6:delete_l();
+                    break;
+            case 7:delete_middle();
+                    break;
+            case 8:display();
+                    break;
+            case 9:printf("Thankyou!");
                     break;
             default:printf("Invalid choice");
         }
-    }while(c!=4);
+    }while(c!=9);
 }
 
 nodeptr getnode(){
@@ -42,48 +53,177 @@ nodeptr getnode(){
 }
 
 void insert_b(){
+    int x;
+    printf("Enter the element : ");
+    scanf("%d",&x);
     temp=getnode();
-    printf("Enter the Student RegNo, Name, Semester, Total marks : \n");
-    scanf("%d",&temp->reg);
-    scanf("%s",temp->name);
-    scanf("%d",&temp->sem);
-    scanf("%d",&temp->total);
-    if(temp->total >= 75)
-        temp->grade='A';
-    else if(temp->total > 60)
-        temp->grade='B';
-    else if(temp->total > 50)
-        temp->grade='C';
-    else if(temp->total >= 35)
-        temp->grade='D';
-    else
-        temp->grade='F';
+    temp->info=x;
     temp->next=list;
     list=temp;
+}
+
+void insert_l(){
+    p=list;
+    if(p==NULL){
+        insert_b();
+    }
+    else{
+        int x;
+        printf("Enter the element : ");
+        scanf("%d",&x);
+        while(p->next!=NULL){
+            p=p->next;
+        }
+        temp=getnode();
+        temp->info=x;
+        p->next=temp;
+        temp->next=NULL;
+    }
+}
+
+void insert_before(){
+    int x,pos;
+    nodeptr q;
+    p=list;
+    if(p==NULL){
+        insert_b();
+    }
+    else{
+        printf("Enter the position : ");
+        scanf("%d",&pos);
+        if(pos==0){
+            insert_b();
+            return;
+        }
+        int i=0;
+        while(i!=pos){
+            q=p;
+            p=p->next;
+            if(p==NULL){
+                printf("Cannot Insert");
+                return;
+            }
+            i++;
+        }
+            printf("Enter the element : ");
+            scanf("%d",&x);
+            temp=getnode();
+            temp->info=x;
+            q->next=temp;
+            temp->next=p;
+    }
+
+}
+
+void insert_after(){
+    int x,pos;
+    p=list;
+    if(p==NULL){
+        insert_b();
+        return;
+    }
+    else{
+        printf("Enter the position : ");
+        scanf("%d",&pos);
+        int i=0;
+        while(i!=pos){
+            p=p->next;
+            if(p==NULL){
+                printf("Cannot Insert");
+                return;
+            }
+            i++;
+        }
+        if(p->next==NULL){
+            insert_l();
+            return;
+        }
+        else{
+            printf("Enter the element : ");
+            scanf("%d",&x);
+            temp=getnode();
+            temp->info=x;
+            temp->next=p->next;
+            p->next=temp;
+        }
+    }
 }
 
 void delete_b(){
     p=list;
     if(p==NULL){
-        printf("No students in the list");
+        printf("No Elements");
         return;
     }
-    printf("Reg\t Name\t Semester\t Total\t Grade\n");
-    printf("%d\t %s\t %d\t %d\t %c\nRemoved from list",p->reg,p->name,p->sem,p->total,p->grade);
+    printf("%d Deleted from List",p->info);
     list=p->next;
+    p->next=NULL;
+    free(p);
+}
+
+void delete_l(){
+    p=list;
+    if(p==NULL){
+        printf("No Elements");
+        return;
+    }
+    if(p->next==NULL){
+        printf("%d Deleted from List",p->info);
+        free(p);
+        list=NULL;
+        return;
+    }
+    while(p->next!=NULL){
+        temp=p;
+        p=p->next;
+    }
+    printf("%d Deleted from List",p->info);
+    p->next=NULL;
+    free(p);
+    temp->next=NULL;
+}
+
+void delete_middle(){
+    temp=p=list;
+    int pos,i=0;
+    printf("Enter the position : ");
+    scanf("%d",&pos);
+    if(p==NULL){
+        printf("No Elements");
+        return;
+    }
+    if(pos==0){
+        delete_b();
+        return;
+    }
+    while(i!=pos){
+        temp=p;
+        p=p->next;
+        if(p==NULL){
+            printf("Cannot Delete");
+            return;
+        }
+        i++;
+    }
+    if(p->next==NULL){
+        delete_l();
+        return;
+    }
+    printf("%d Deleted from List",p->info);
+    temp->next=p->next;
     p->next=NULL;
     free(p);
 }
 
 void display(){
     if(list==NULL){
-        printf("No students in the list");
+        printf("No elemenets in the list");
     }
     else{
         p=list;
-        printf("Reg\t Name\t Semester\t Total\t Grade\n");
+        printf("List elements are : ");
         while(p!=NULL){
-            printf("%d\t %s\t %d\t %d\t %c\n",p->reg,p->name,p->sem,p->total,p->grade);
+            printf("%d ",p->info);
             p=p->next;
         }
     }
