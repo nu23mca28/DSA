@@ -6,7 +6,7 @@
 
 
 
----*Please Validate All Conditions For Linked List programs*---
+---*Please Validate All Conditions For Linked List programs (List empty case, Single node case, general case etc)*---
 
 
 
