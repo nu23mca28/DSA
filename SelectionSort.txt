@@ -1,15 +1,15 @@
 #include<stdio.h>
-void selectsort(int a[],int n)
+void selection_sort(int a[],int n)
 {
     int i,j,min,temp;
-    for(i=0;i<n;i++){
-        min=i;                  //assuming first element is lowest
+    for(i=0;i<n-1;i++){
+        min=i;                  //assuming first element is lowest(in each iteration min stores the index of lowest element)
         for(j=i+1;j<n;j++){
             if(a[j]<a[min]){
-                min=j;          //storing the index of lowest elemnts
+                min=j;          //storing the index of lowest elemnt
             }
         }
-        temp=a[i];              //swapping lowest value with 'i' index 
+        temp=a[i];              //swapping lowest value 'a[min]' with 'i' index 
         a[i]=a[min];
         a[min]=temp;
     }
@@ -33,5 +33,5 @@ void main()
         printf("%d\t\n",a[i]);
     }
     printf("Array after sorting\n");
-    selectsort(a,n);
+    selection_sort(a,n);
 }
