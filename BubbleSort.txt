@@ -1,5 +1,5 @@
 #include<stdio.h>
-void bs(int a[],int n)
+void bubble_sort(int a[],int n)
 {
     int i,j,temp;
     for(i=0;i<n-1;i++)
@@ -35,5 +35,7 @@ for(i=0;i<n;i++)
         printf("%d\t",a[i]);
     }
     printf("\nArray after sorting\n");
-    bs(a,n);
+    bubble_sort(a,n);
+
+
 }
