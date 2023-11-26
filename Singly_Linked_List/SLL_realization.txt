@@ -65,7 +65,7 @@ void insert_b(){
 void insert_l(){
     p=list;
     if(p==NULL){
-        insert_b();
+        insert_b();     // calling insert_b() funtion since the statements to insert when list==NULL is already given in that function
     }
     else{
         int x;
