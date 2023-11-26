@@ -1,3 +1,3 @@
 # DSA lab programs 
 
-*****Please let me know if there is any mistake in any code*****
+*****PLEASE EXECUTE THE CODE and Please let me know if there is any mistake*****
