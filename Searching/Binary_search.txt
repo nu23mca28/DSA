@@ -28,7 +28,7 @@ void main()
         scanf("%d",&a[i]);
     }
     
-    for(i=0;i<n-1;i++)          //sorting the array to perform binary saerch
+    for(i=0;i<n-1;i++)          //sorting the array to perform binary search
     {
         for(j=0;j<n-i-1;j++)
         {
