@@ -6,7 +6,7 @@
 
 
 
----*Please Validate All Conditions For Linked List*---
+---*Please Validate All Conditions For Linked List programs*---
 
 
 
