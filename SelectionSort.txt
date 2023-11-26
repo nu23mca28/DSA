@@ -3,13 +3,13 @@ void selectsort(int a[],int n)
 {
     int i,j,min,temp;
     for(i=0;i<n;i++){
-        min=i;
+        min=i;                  //assuming first element is lowest
         for(j=i+1;j<n;j++){
             if(a[j]<a[min]){
-                min=j;
+                min=j;          //storing the index of lowest elemnts
             }
         }
-        temp=a[i];
+        temp=a[i];              //swapping lowest value with 'i' index 
         a[i]=a[min];
         a[min]=temp;
     }
