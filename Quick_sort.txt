@@ -1,56 +1,37 @@
 #include<stdio.h>
-
-void quickSort(int arr[],int,int);
-
-void main()
+void selection_sort(int a[],int n)
 {
-    int arr[30],l,r,i,n;
-    printf("Enter the number of ele: ");
-    scanf("%d",&n);
-    printf("Enter values: \n");
+    int i,j,min,temp;
     for(i=0;i<n;i++){
-        scanf("%d",&arr[i]);
-    }
-    l=0;r=n-1;
-    quickSort(arr,l,r);
-    
-    printf("The quick sorted array is: \n");
-    for(i=0;i<n;i++)
-        printf("%d ",arr[i]);
-}
-
-void quickSort(int arr[], int low, int high)
-{
-    int temp,i,j,x;
-    if(low>=high)
-        return;
-    else
-    {
-        x=arr[low];
-        i=low+1;
-        j=high;
-        while(i<=j)
-        {
-            while(arr[i]<x && i<=high)
-            {
-                i++;
-            }
-            while(arr[j]>x && j>low)
-            {
-                j--;
-            } 
-            if(i<j)
-            {
-                temp=arr[i];
-                arr[i]=arr[j];
-                arr[j]=temp; 
-                i++; 
-                j--;
+        min=i;                  //assuming first element is lowest(in each iteration min stores the index of lowest element)
+        for(j=i+1;j<n;j++){
+            if(a[j]<a[min]){
+                min=j;          //storing the index of lowest elemnts
             }
         }
-        arr[low]=arr[j];
-        arr[j]=x;
-        quickSort(arr, low,j-1); 
-        quickSort(arr,j+1,high);
+        temp=a[i];              //swapping lowest value 'a[min]' with 'i' index 
+        a[i]=a[min];
+        a[min]=temp;
     }
+    for(i=0;i<n;i++){
+        printf("%d ",a[i]);
+    }
+}
+void main()
+{
+    int n,a[100],i;
+    printf("Enter the number of elements in an array\n");
+    scanf("%d",&n);
+    printf("Enter array elements\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    printf("Array before sorting\n");
+    for(i=0;i<n;i++)
+    {
+        printf("%d\t\n",a[i]);
+    }
+    printf("Array after sorting\n");
+    selectsort(a,n);
 }
