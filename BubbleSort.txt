@@ -34,8 +34,6 @@ for(i=0;i<n;i++)
     {
         printf("%d\t",a[i]);
     }
-    printf("Array after sorting\n");
+    printf("\nArray after sorting\n");
     bs(a,n);
-
-
 }
