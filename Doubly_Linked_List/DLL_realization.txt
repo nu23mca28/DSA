@@ -223,6 +223,7 @@ void delete_middle(){
     }
     printf("%d Deleted from List",p->info);
     p->left->right=p->right;
+    p->right->left=p->left;
     p->right=NULL;
     free(p);
 }
