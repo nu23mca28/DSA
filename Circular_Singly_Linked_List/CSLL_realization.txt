@@ -22,7 +22,7 @@ void main(){
     int c;
     char ch;
     do{
-        printf("\n\n1.Insert at beggning\n2.Insert at last\n3.Insert Before\n4.Insert After\n5.Delete beginning\n6.Delete Last\n7.Delete Middle\n8.Display\n9.Exit\n");
+        printf("\n\n1.Insert at beginning\n2.Insert at last\n3.Insert Before\n4.Insert After\n5.Delete beginning\n6.Delete Last\n7.Delete Middle\n8.Display\n9.Exit\n");
         printf("Enter your choice : ");
         scanf("%d",&c);
         switch(c){
