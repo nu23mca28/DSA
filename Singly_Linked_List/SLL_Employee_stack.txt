@@ -44,7 +44,7 @@ nodeptr getnode(){
 
 void insert_b(){
     temp=getnode();
-    printf("Enter the Employee Details (E.No, Name, Basic, Designation, Date of Joining : \n");
+    printf("Enter the Employee Details (E.No, Name, Basic, Designation, Date of Joining) : \n");
     scanf("%d",&temp->eno);
     scanf("%s",temp->ename);
     scanf("%d",&temp->basic);
