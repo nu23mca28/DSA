@@ -136,7 +136,7 @@ void insert_after(){
     }
     if(p->next==list->next){
         insert_l();
-        return;1
+        return;
     }
     printf("Enter the element : ");
     scanf("%d",&x);
