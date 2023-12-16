@@ -44,7 +44,6 @@ nodeptr getnode(){
 }
 
 void insert_b(){
-    int x;
     temp=getnode();
     printf("Enter the Student RegNo, Name, Semester, Total marks : \n");
     scanf("%d",&temp->reg);
