@@ -183,8 +183,8 @@ void delete_l(){
         printf("No Elements");
         return;
     }
-    printf("%d Deleted from List",p->info);
     if(p->right==NULL){
+        printf("%d Deleted from List",p->info);
         free(p);
         list=NULL;
         return;
@@ -192,6 +192,7 @@ void delete_l(){
     while(p->right!=NULL){
         p=p->right;
     }
+    printf("%d Deleted from List",p->info);
     p->left->right=NULL;
     free(p);
 }
