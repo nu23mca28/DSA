@@ -1,0 +1,41 @@
+#include<stdio.h>
+struct stack{
+    int top;
+    int stack[100];
+}s;
+
+void push(int);
+int pop();
+
+void main(){
+    int pos=0;
+    char infix[100],symbol;
+    printf("Enter the postfix expression : ");
+    scanf("%s",infix);
+    while(infix[pos]!='\0'){
+        symbol=infix[pos];
+        if(symbol>='0' && symbol<='9')
+            push(symbol-'0');
+        else{
+            int n1,n2;
+            n1=pop();
+            n2=pop();
+            switch(symbol){
+                case '+':push(n2+n1);break;
+                case '-':push(n2-n1);break;
+                case '*':push(n2*n1);break;
+                case '/':push(n2/n1);break;
+            }
+        }
+        pos++;
+    }
+    printf("Result = %d",pop());
+}
+
+void push(int x){
+    s.stack[++s.top]=x;
+}
+
+int pop(){
+    return (s.stack[s.top--]);
+}
